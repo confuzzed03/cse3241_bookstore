@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS "Order";
+CREATE TABLE "Order" ("OrderNumber" INTEGER PRIMARY KEY  NOT NULL  DEFAULT (null) ,"Date" DATETIME,"TransNum" INTEGER,"AddressID" INTEGER,"Status" VARCHAR, FOREIGN KEY ("TransNum") REFERENCES "Payment(TransNum)", FOREIGN KEY ("AddressID") REFERENCES "Address(AddressID)" );
 INSERT INTO "Order" VALUES(1,'1/19/2013 16:38',1,1,'Received');
 INSERT INTO "Order" VALUES(2,'5/19/2010 5:27',2,2,'Processing');
 INSERT INTO "Order" VALUES(3,'6/25/2015 22:06',3,3,'Shipping');

@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS "Book";
+CREATE TABLE "Book" ("ISBN" VARCHAR PRIMARY KEY  NOT NULL ,"Price" DOUBLE DEFAULT (null) ,"Year" INTEGER,"Title" VARCHAR,"Category" VARCHAR DEFAULT (null) ,"Stock" INTEGER DEFAULT (0) );
 INSERT INTO "Book" VALUES('782140661',104.97,2002,'OCP: Oracle9i Certification Kit','Computer',42);
 INSERT INTO "Book" VALUES('72227885',34.99,2003,'SQL Server 2000 for Experienced DBA''s','Computer',45);
 INSERT INTO "Book" VALUES('471200247',50,2002,'The Data Warehouse Toolkit: The Complete Guide to Dimensional Modeling','Computer',19);

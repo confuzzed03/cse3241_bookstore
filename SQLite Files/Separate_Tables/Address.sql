@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS "Address";
+CREATE TABLE "Address" ("AddressID" INTEGER PRIMARY KEY  NOT NULL , "Street" VARCHAR, "City" VARCHAR, "State" VARCHAR, "Zip" VARCHAR);
 INSERT INTO "Address" VALUES(1,'19520 Springview Crossing','Roanoke','Virginia','24040');
 INSERT INTO "Address" VALUES(2,'17296 Gina Way','Duluth','Georgia','30195');
 INSERT INTO "Address" VALUES(3,'6860 Vidon Junction','Huntsville','Alabama','35815');

@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS "Publisher";
+CREATE TABLE "Publisher" ("PublisherName" VARCHAR PRIMARY KEY  NOT NULL  DEFAULT (null) ,"AddressID" INTEGER, FOREIGN KEY ("AddressID") REFERENCES "Address(AddressID)");
 INSERT INTO "Publisher" VALUES('Addison-Wesley Pub Co',108);
 INSERT INTO "Publisher" VALUES('Addison-Wesley Publishing',109);
 INSERT INTO "Publisher" VALUES('Anchor Books',110);

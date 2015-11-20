@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS "Offline";
+CREATE TABLE "Offline" ("OrderNumber" INTEGER PRIMARY KEY  NOT NULL  DEFAULT (null) ,"Location" VARCHAR, FOREIGN KEY ("OrderNumber") REFERENCES "Order(OrderNumber)" );
 INSERT INTO "Offline" VALUES(21,'Charleston, West Virginia');
 INSERT INTO "Offline" VALUES(22,'Little Rock, Arkansas');
 INSERT INTO "Offline" VALUES(23,'San Francisco, California');

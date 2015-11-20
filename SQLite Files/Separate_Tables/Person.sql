@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS "Person";
+CREATE TABLE "Person" ("PersonID" INTEGER PRIMARY KEY  NOT NULL , "First" VARCHAR, "Middle" VARCHAR, "Last" VARCHAR, "AddressID" INTEGER REFERENCES "Address(AddressID)");
 INSERT INTO "Person" VALUES(1,'Chip',NULL,'Dawes',1);
 INSERT INTO "Person" VALUES(2,'Biju',NULL,'Thomas',2);
 INSERT INTO "Person" VALUES(3,'Doug',NULL,'Stuns',3);

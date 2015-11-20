@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS "Published_By";
+CREATE TABLE "Published_By" ("PublisherName" VARCHAR NOT NULL , "ISBN" VARCHAR NOT NULL , PRIMARY KEY ("PublisherName", "ISBN"), FOREIGN KEY ("PublisherName") REFERENCES "Publisher(PublisherName)", FOREIGN KEY ("ISBN") REFERENCES "Book(ISBN)");
 INSERT INTO "Published_By" VALUES('Sybex','782140661');
 INSERT INTO "Published_By" VALUES('McGraw-Hill Osborne Media','72227885');
 INSERT INTO "Published_By" VALUES('John Wiley & Sons','471200247');
