@@ -1,0 +1,32 @@
+-- This line is used to create the table, Address
+CREATE TABLE "Address" ("AddressID" INTEGER PRIMARY KEY  NOT NULL , "Street" VARCHAR, "City" VARCHAR, "State" VARCHAR, "Zip" VARCHAR);
+-- This line is used to create the table, Author
+CREATE TABLE "Author" ("PersonID" INTEGER PRIMARY KEY NOT NULL ,"Favorites" INTEGER,"Rating" DOUBLE,"Birthdate" VARCHAR DEFAULT (null), FOREIGN KEY("PersonID") REFERENCES "Person(PersonID)" );
+-- This line is used to create the table, Book
+CREATE TABLE "Book" ("ISBN" VARCHAR PRIMARY KEY  NOT NULL ,"Price" DOUBLE DEFAULT (null) ,"Year" INTEGER,"Title" VARCHAR,"Category" VARCHAR DEFAULT (null) ,"Stock" INTEGER DEFAULT (0) );
+-- This line is used to create the table, Customer
+CREATE TABLE "Customer" ("PersonID" INTEGER PRIMARY KEY  NOT NULL ,"EmailAddress" VARCHAR DEFAULT (null), FOREIGN KEY ("PersonID") REFERENCES "Person(PersonID)" );
+-- This line is used to create the table, Customer_Info
+CREATE TABLE "Customer_Info" ("EmailAddress" VARCHAR PRIMARY KEY  NOT NULL  DEFAULT (null) ,"Preferences" VARCHAR,"Password" VARCHAR);
+-- This line is used to create the table, Have_Purchased
+CREATE TABLE "Have_Purchased" ("ISBN" VARCHAR NOT NULL , "PersonID" INTEGER NOT NULL , "Qty" INTEGER, PRIMARY KEY ("ISBN", "PersonID"), FOREIGN KEY ("ISBN") REFERENCES "Book(ISBN)", FOREIGN KEY ("PersonID") REFERENCES "Person(PersonID)");
+-- This line is used to create the table, Offline
+CREATE TABLE "Offline" ("OrderNumber" INTEGER PRIMARY KEY  NOT NULL  DEFAULT (null) ,"Location" VARCHAR, FOREIGN KEY ("OrderNumber") REFERENCES "Order(OrderNumber)" );
+-- This line is used to create the table, Online
+CREATE TABLE "Online" ("OrderNumber" INTEGER PRIMARY KEY  NOT NULL  DEFAULT (null) ,"DeliveryDay" DATETIME DEFAULT (null), FOREIGN KEY ("OrderNumber") REFERENCES "Order(OrderNumber)" );
+-- This line is used to create the table, Order
+CREATE TABLE "Order" ("OrderNumber" INTEGER PRIMARY KEY  NOT NULL  DEFAULT (null) ,"TransNum" INTEGER, FOREIGN KEY ("TransNum") REFERENCES "Payment(TransNum)" );
+-- This line is used to create the table, Order_For
+CREATE TABLE "Order_For" ("ISBN" VARCHAR PRIMARY KEY  NOT NULL ,"OrderNumber" INTEGER NOT NULL  DEFAULT (null) ,"Qty" INTEGER, FOREIGN KEY ("OrderNumber") REFERENCES "Order(OrderNumber)", FOREIGN KEY ("ISBN") REFERENCES "Book(ISBN)" );
+-- This line is used to create the table, Order_Status
+CREATE TABLE "Order_Status" ("OrderNumber" INTEGER PRIMARY KEY  NOT NULL  DEFAULT (null) ,"Status" VARCHAR );
+-- This line is used to create the table, Payment
+CREATE TABLE "Payment" ("TransNum" INTEGER PRIMARY KEY  NOT NULL , "Type" VARCHAR, "Amount" DOUBLE, "Date" DATETIME, "PersonID" INTEGER REFERENCES "Person(PersonID)");
+-- This line is used to create the table, Person
+CREATE TABLE "Person" ("PersonID" INTEGER PRIMARY KEY  NOT NULL , "First" VARCHAR, "Middle" VARCHAR, "Last" VARCHAR, "AddressID" INTEGER REFERENCES "Address(AddressID)");
+-- This line is used to create the table, Published_By
+CREATE TABLE "Published_By" ("PublisherName" VARCHAR NOT NULL , "ISBN" VARCHAR NOT NULL , PRIMARY KEY ("PublisherName", "ISBN"), FOREIGN KEY ("PublisherName") REFERENCES "Publisher(PublisherName)", FOREIGN KEY ("ISBN") REFERENCES "Book(ISBN)");
+-- This line is used to create the table, Publisher
+CREATE TABLE "Publisher" ("PublisherName" VARCHAR PRIMARY KEY  NOT NULL  DEFAULT (null) ,"AddressID" INTEGER, FOREIGN KEY ("AddressID") REFERENCES "Address(AddressID)");
+-- This line is used to create the table, Written_By
+CREATE TABLE "Written_By" ("ISBN" VARCHAR NOT NULL , "PersonID" INTEGER NOT NULL , PRIMARY KEY ("ISBN", "PersonID"), FOREIGN KEY ("ISBN") REFERENCES "Book(ISBN)", FOREIGN KEY ("PersonID") REFERENCES "Person(PersonID)");

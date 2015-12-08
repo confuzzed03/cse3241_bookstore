@@ -1,0 +1,3 @@
+Each text file has the scripts needed to insert data for each table into the database. These scripts should be used once the table creation scripts have been employed.
+You can directly copy these scripts and paste them into a SQLite command prompt or some other command line tool.
+The sqlite_master text file should only be used if the binary file does not work in connecting the database (Firefox plugin). Other than that, this file is ignored in most cases.
