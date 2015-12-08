@@ -1,0 +1,95 @@
+-- INSERT statement set for Book
+INSERT INTO “Book” (ISBN, Price, Year, Title, Category, Stock) VALUES (‘781140662’, 1.99, 2015, ‘How to use insert syntax’, ‘Computer’, 15);
+
+-- INSERT statement set for Publisher
+INSERT INTO "Address" (AddressID, Street, City, State, Zip) VALUES(216, ‘1937 Wombat Avenue’, ‘Columbus’, ‘Ohio’, ‘43213’);
+INSERT INTO “Publisher” (PublisherName, AddressID) VALUES (‘Best Publisher Co.’, 216);
+
+-- INSERT statement set for Author
+INSERT INTO "Address" (AddressID, Street, City, State, Zip) VALUES(217, ‘1937 Bunny Avenue’, ‘Dublin’, ‘Ohio’, ‘43206’);
+INSERT INTO "Person" (PersonID, First, Middle, Last, AddressID) VALUES(128, ‘Andrew’, ‘Bower’, ‘Jefferson’, 217);
+INSERT INTO "Author" (PersonID, Favorites, Rating, Birthdate) VALUES(128, 6, 2.3, ‘4/1/1979’);
+
+-- INSERT statement set for Customer
+INSERT INTO "Address" (AddressID, Street, City, State, Zip) VALUES(218, ‘9373 Harley Road’, ‘Cleveland’, ‘Ohio’, ‘51235’);
+INSERT INTO "Person" (PersonID, First, Middle, Last, AddressID) VALUES(129, ‘Nathan’, ‘Davis’, ‘Kim’, 218);
+INSERT INTO “Customer” (PersonID, EmailAddress) VALUES (129, ‘kakdsu@gmail.com’);
+INSERT INTO “Customer_Info” (EmailAddress, Preferences, Password) VALUES (‘kakdsu@gmail.com’, ‘Science’, ‘dkasd981j’);
+
+-- DELETE statement set for Book
+DELETE FROM Published_By WHERE ISBN = 782140661;
+DELETE FROM Order_For WHERE ISBN = 782140661;
+DELETE FROM Written_By WHERE ISBN = 782140661;
+DELETE FROM Have_Purchased WHERE ISBN = 782140661;
+DELETE FROM Book WHERE ISBN = 782140661;
+
+-- DELETE statement set for Publisher
+DELETE FROM Published_By WHERE PublisherName = 'Sybex';
+DELETE FROM Publisher WHERE PublisherName = 'Sybex';	
+
+-- DELETE statement set for Author
+DELETE FROM Written_By WHERE PersonID = 2;
+DELETE FROM Have_Purchased WHERE PersonID = 2;
+DELETE FROM Customer WHERE PersonID = 2;
+DELETE FROM Author WHERE PersonID = 2;
+DELETE FROM Person WHERE PersonID = 2;
+
+-- DELETE statement set for Customer
+DELETE FROM Written_By WHERE PersonID = 4;
+DELETE FROM Have_Purchased WHERE PersonID = 4;
+DELETE FROM Customer WHERE PersonID = 4;
+DELETE FROM Author WHERE PersonID = 4;
+DELETE FROM Person WHERE PersonID = 4;
+
+-- DELETE STATEMENT FOR ADDRESS
+DELETE FROM Address WHERE AddressID = 1;
+
+-- DELETE STATEMENT FOR CUSTOMER_INFO
+DELETE FROM Customer_Info WHERE EmailAddress = 'mevans0@admin.ch';
+
+-- DELETE STATEMENT FOR HAVE_PURCHASED
+DELETE FROM Have_Purchased WHERE ISBN = '782140661' AND PersonID = '1';
+
+-- DELETE STATEMENT FOR OFFLINE
+DELETE FROM Offline WHERE OrderNumber = 21;
+
+-- DELETE STATEMENT FOR ONLINE
+DELETE FROM Online WHERE OrderNumber = 1;
+
+-- DELETE STATEMENT FOR ORDER
+DELETE FROM Order_For WHERE OrderNumber = 3;
+DELETE FROM Online WHERE OrderNumber = 3;
+DELETE FROM Order_Status WHERE OrderNumber = 3;
+DELETE FROM "Order" WHERE OrderNumber = 3;
+
+-- DELETE STATEMENT FOR ORDER_FOR
+DELETE FROM Order_For WHERE ISBN = '156158648X' AND OrderNumber = 40;
+
+-- DELETE STATEMENT FOR ORDER_STATUS
+DELETE FROM Order_Status WHERE OrderNumber = 25;
+
+-- DELETE STATEMENT FOR PAYMENT
+DELETE FROM Order_For WHERE OrderNumber = 2;
+DELETE FROM Online WHERE OrderNumber = 2;
+DELETE FROM Order_Status WHERE OrderNumber = 2;
+DELETE FROM "Order" WHERE OrderNumber = 2;
+DELETE FROM Payment WHERE TransNum = 2;
+
+-- DELETE STATEMENT FOR PERSON
+DELETE FROM Written_By WHERE PersonID = 5;
+DELETE FROM Have_Purchased WHERE PersonID = 5;
+DELETE FROM Customer WHERE PersonID = 5;
+DELETE FROM Author WHERE PersonID = 5;
+DELETE FROM Written_By WHERE PersonID = 5;
+DELETE FROM Order_For WHERE OrderNumber = 5;
+DELETE FROM Online WHERE OrderNumber = 5;
+DELETE FROM Order_Status WHERE OrderNumber = 5;
+DELETE FROM "Order" WHERE OrderNumber = 5;
+DELETE FROM Payment WHERE TransNum = 5;
+DELETE FROM Person WHERE PersonID = 5;
+
+-- DELETE STATEMENT FOR PUBLISHED_BY
+DELETE FROM Published_By WHERE PublisherName = 'McGraw-Hill Trade';
+
+-- DELETE STATEMENT FOR WRITTEN_BY
+DELETE FROM Written_By WHERE PersonID = 14;
